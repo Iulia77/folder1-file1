@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CHAT EXAMPLE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body onload= "initChat()">
+    <h1>CHAT EXAMPLE</h1>
+<!--COMPONENT CONTAINER-->
+    <div id="chat" class="hidden">
+        <div class="chat-header">
+            <h3>Support Chat</h3>
+            <button onclick="closeChat()"><i class="fa-solid fa-square-xmark"></i></button>
+
+        </div>
+
+        <div class="chat-body">
+            Content
+
+        </div>
+
+        <div class="chat-footer">
+                <form class="form-send">
+                        <input type="text" placeholder="type here ....">
+                        <button><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+
+        </div>
+        <div class="chat-icon" onclick="openChat()" ><i class="fa-solid fa-comment-dots"></i></div>
+
+    </div>
+<!--COMPONENT CONTAINER-->
+    
+    <script src="chat.js"></script>
+</body>
+</html>
