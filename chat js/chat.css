@@ -1,0 +1,80 @@
+body {
+    background-color: #334;
+    color: white;
+    height: 3000px;
+}
+
+/* CHAT COMPONENT STYLES*/
+#chat {
+    padding: 5px;
+    /*width: 250px;
+    height: 400px;*/
+    /*background-color: #fff;*/
+    border: 1px solid #666;
+    background-color: #eef;
+    background-image: linear-gradient(grey, #e6ffff);
+    box-shadow: 5px 5px 5px lightblue inset;
+
+    /* css position relative, fixed, absolute,sticky */
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+
+}
+#chat .chat-header {
+    height: 60px;
+    color: #666; 
+    border-bottom: 1px solid #888; 
+    font-family: monospace;
+    
+}
+#chat .chat-header h3 {
+    float: left;
+    font-family: monospace;
+    font-size: 20px;
+
+}
+#chat .chat-header button {
+    float: right;
+    cursor: pointer;
+    background-image: linear-gradient(grey, #e6ffff);
+}
+#chat .chat-body {
+    height: 260px;
+    font-family: monospace;
+    font-size: 16px;
+}
+#chat .chat-footer {
+    height: 60px;
+    border-top: 1px solid #888;
+    background-color: lightblue;
+    
+}
+
+#chat .form-send input {
+    padding: 20px;
+}
+
+#chat .form-send button {
+    padding: 20px;
+}
+#chat .chat-icon {
+    display: none;
+}
+
+#chat.hidden .chat-header,
+#chat.hidden .chat-body,
+#chat.hidden .chat-footer 
+{
+   display: none;
+}
+#chat.hidden .chat-icon {
+    display: block;
+    font-size: 300%;
+    cursor: pointer;
+}
+
+#chat.hidden {
+    background: transparent;
+    border: none;
+}
