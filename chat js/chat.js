@@ -1,13 +1,27 @@
 const chatWindow = document.getElementById('chat')
-
+const chatSendBtn = document.getElementsByTagName("button")[1];
+const itemInput = document.querySelector('input[type="text"]');
+const form = document.querySelector('form');
+let messages = []
 
 function initChat() {
     let chatHidden = !!localStorage.getItem('chatHidden')
     if(!chatHidden) {
         openChat()
     }
+    chatSendBtn.addEventListener('click', runEvent)
 
 } 
+
+function runEvent(e) {
+    e.preventDefault()
+    let message = {
+        content: itemInput.value
+    }
+    messages.push(message)
+    itemInput.value = ''
+}
+
 
 
 
@@ -26,11 +40,11 @@ function closeChat() {
 //the function should read the input value and add it to the end of an array called "messages".
 
 
-var itemInput = document.querySelector('input[type="text"]');
-var form = document.querySelector('form');
 
-itemInput.addEventListener('input', runEvent);
-function runEvent(e) {
-    console.log('message send' +e.type);
-}
 
+
+
+
+  
+
+    
