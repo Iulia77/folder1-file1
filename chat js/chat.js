@@ -13,6 +13,10 @@ function initChat() {
 
 } 
 
+//HW2: create a function  which should be fired when the user click the button,
+// or hits ENTER key on input.
+//the function should read the input value and add it to the end of an array called "messages".
+
 function runEvent(e) {
     e.preventDefault()
     let message = {
@@ -35,9 +39,7 @@ function closeChat() {
     localStorage.setItem('chatHidden', true)
 }
 
-//HW2: create a function  which should be fired when the user click the button,
-// or hits ENTER key on input.
-//the function should read the input value and add it to the end of an array called "messages".
+
 
 
 
