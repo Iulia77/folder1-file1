@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    padding-top: 20%;
+}
+
+.container button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 2em;
+    color: #008CBA;
+    background-color: #e7e7e7;
+
+}
