@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.container #author {
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+ .container #info {
+    border: 1px solid grey;
+    padding: 25px 50px;
+    font-size: 1em;
+    background-color: khaki;
+    margin: auto;
+    width: 50%;
+    
+ }
+
+
+.container button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 2em;
+    color: rgb(174, 186, 0);
+    background-color: #777;
+    
+
+}
