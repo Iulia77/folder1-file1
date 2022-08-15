@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data scrapper | AJAX</title>
+</head>
+<body>
+    <input type="button" value="Generate a table" onclick="generate_table()">
+    <script>
+        const URL = "https://en.wikipedia.org/wiki/List_of_programming_languages#J"
+    
+    
+        //using AJAX to communicate wiki server in Background
+         function loadPage() {
+        // 1. prep the connection object
+        let xhr = new XMLHttpRequest()
+    
+        // 2. setup
+        xhr.open("GET", URL)
+    
+        //2.a 
+        xhr.onload = () => {
+            //PARSE THE DOC
+            let html = xhr.responseText  //string
+            let parser = new DOMParser()
+            let htmlDoc = parser.parseFromString(html, "text/html") // DOM structure
+            
+            //TRAVERSE THE DOM STRUCTURE
 
+            // AND SCRAPE
+
+            let languages = []
+            let divs = htmlDoc.querySelectorAll('.div-col')
+            let div = divs[9]
+            let lis = div.firstElementChild.children
+            //console.log( htmlDoc )
+            for(let i =0; i < lis.length; i++) {
+                languages.push(lis[i].firstElementChild.innerText)
+            }
+            console.log( languages )
+
+            // render the gathered info into HTML table
+            // using DOM OOP approach
+            
+
+        }
+    
+        //3. send the request
+        xhr.send()
+         }
+         function generate_table() {
+                const tbl = document.createElement("table");
+                const tblBody = document.createElement("tbody");
+
+                for (let i=0; i<24; i++) {
+                    const row = document.createElement("tr");
+                    for (let j=0; j<1; j++) {
+                        const cell = document.createElement("td");
+                        const cellText = document.createTextNode(`cell in row${i}, column${j}`);
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+
+                    }
+                    tblBody.appendChild(row);
+                }
+                tbl.appendChild(tblBody);
+                document.body.appendChild(tbl);
+                tbl.setAttribute("border", "2");
+                
+            }
+    
+    </script>
+</body>
+
+</html>
