@@ -27,17 +27,21 @@ function initChat() {
 
 function runEvent(e) {
     e.preventDefault()
+    
     let message = {
         content: itemInput.value,
-        time: Date()
         //HW: add property which contain a date
         // hint: Date()
-        //when the messages are rendered show hours hh:mm:ss
-    }
+        //when the messages are rendered show hours hh:mm:ss   
+    };
+  
+    
+    
     messages.push(message)
     itemInput.value = ''
 
-    renderMessages(Date())
+    
+    renderMessages()
     savaMessages()
 }
 
@@ -49,13 +53,13 @@ function renderMessages() {
     let html = `<ul>`
     //HW: rewrite loop code using Array.forEach()
     
-     messages.forEach((message, i=Math.max(messages.length - 6,0)) => {
-        
+     messages.slice(0,6).forEach((message, i=0) => {
+         
      html += `<li>${messages[i].content}</li>`;
-        
-     });
      
-
+     
+     });
+    
     //for(i=Math.max(messages.length - 6,0)); let  i<messages.length; i++) {
         //html += `<li>${messages[i].content}</li>`
     //}
@@ -79,6 +83,16 @@ function closeChat() {
 //HW2: create a function  which should be fired when the user click the button,
 // or hits ENTER key on input.
 //the function should read the input value and add it to the end of an array called "messages".
+
+
+
+
+
+
+
+  
+
+    
 
 
 
