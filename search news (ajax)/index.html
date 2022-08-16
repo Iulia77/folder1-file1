@@ -47,25 +47,41 @@ API VS SCRAPPPING
     <div id="content"></div>
     <script>
 
+        
+
         const config = [
             {
                 name: "Point",
                 url: "https://point.md/ru/novosti/poisk/",
-                param: "keyword"
+                param: "keyword",
+
+                domMapping: {
+                    title: ".ujabma-2 h3",
+                    image: ".ujabma-2 img"
+                }
             },
             {
                 name: "TV8",
-                url: "https://tv8.md/ru/search",
-                param: "query"
+                url: "https://tv8.md/ro/search",
+                param: "query",
+
+                domMapping: {
+                    title: "h1 ~ a > div > div",
+                    image: "h1 ~ a > img"
+                }
             },
             {
                 name: "Publika",
                 url: "https://www.publika.md/cauta/",
                 param: "q"
-            },
+            }
+          
+
         ]
         const formElement = document.querySelector("#form")
         const inputElement = formElement.firstElementChild
+
+        const contentElement = document.querySelector("#content")
 
         const onKeypress = (e) => {
             //let keyPhrase = inputElement.value
@@ -77,7 +93,25 @@ API VS SCRAPPPING
 
             let keyPhrase = inputElement.value
             //console.log(keyPhrase)
-            sendSearch(config[0], keyPhrase) 
+            sendSearch(config[1], keyPhrase) 
+            }
+
+            const render = (data, parent) => {
+                for(let i=0; i<data.length; i++) {
+                    let div = document.createElement('div')
+
+                    let h3 = document.createElement('h3')
+                    h3.innerText = data[i].title
+
+                    let img = document.createElement('img')
+                    img.src = data[i].img_src
+
+                    div.appendChild(h3)
+                    div.appendChild(img)
+
+                    parent.appendChild(div)
+                }
+
             }
         
 
@@ -97,7 +131,21 @@ API VS SCRAPPPING
                    let parser = new DOMParser()
                    let htmlDoc = parser.parseFromString(html, "text/html") // DOM structure
                    
-                   console.log(htmlDoc)
+                  let titleElements = htmlDoc.querySelectorAll(portal.domMapping.title)
+                  let imageElements = htmlDoc.querySelectorAll(portal.domMapping.image)
+                  //console.log(htmlDoc)
+                  //console.log(titleElements)
+                  //console.log(imageElements)
+
+                  //document.body.innerHTML = htmlDoc.body.innerHTML
+                  let news = []
+                  for(let i=0; i<titleElements.length; i++){
+                    news.push({
+                        title: titleElements[i].innerText,
+                        img_src: imageElements[i].src,
+                    })
+                  }
+                  render(news, contentElement)
                }
                //3. send the request
                xhr.send()
