@@ -1,0 +1,20 @@
+body {
+    background-color: #333;
+}
+
+#paper {
+    background-color: #777;
+    width: 250px;
+    height: 250px;
+    
+}
+
+#paper .point {
+    width: 5px;
+    height: 5px;
+    border: 1px solid #888;
+
+    box-sizing: border-box;
+    float: left;
+    
+}
