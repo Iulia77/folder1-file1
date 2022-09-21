@@ -1,0 +1,27 @@
+#box {
+    background-color: #777;
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    position: relative;
+    
+}
+
+#button-1 {
+    position: absolute;
+    left: 0;
+    top: 80px;
+
+}
+
+#button-2 {
+    position: absolute;
+    left: 20px;
+    top: 80px;
+
+}
+
+#brush {
+    position: absolute;
+    
+}
